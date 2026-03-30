@@ -1,0 +1,388 @@
+Yahan **updated website** hai with your contact details:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karachi Baker's - Best Bakery in Town</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8d7da" width="1200" height="600"/><circle fill="%23ff9f43" cx="200" cy="200" r="100"/><circle fill="%23feca57" cx="800" cy="250" r="120"/><circle fill="%23ff6b6b" cx="1000" cy="400" r="80"/><rect fill="%2348cae4" x="400" y="350" width="150" height="80" rx="20"/></svg>');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #ff6b6b;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,107,107,0.3), rgba(254,202,87,0.3));
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .product-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">🍰 Karachi Baker's</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Karachi Baker's</h1>
+            <p>Freshly Baked Happiness Everyday!</p>
+            <a href="#products" class="cta-button">View Menu</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">🍪 Our Delicious Menu</h2>
+        <div class="products-grid">
+            <!-- Cake -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: linear-gradient(45deg, #ff9a9e, #fecfef), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22><rect fill=%22%23ff9a9e%22 width=%22300%22 height=%22250%22 rx=%2220%22/><circle fill=%22%23fff%22 cx=%22150%22 cy=%2280%22 r=%2230%22/><circle fill=%22%23fff%22 cx=%22100%22 cy=%22120%22 r=%2220%22/><circle fill=%22%23fff%22 cx=%22200%22 cy=%22120%22 r=%2220%22/><rect fill=%22%23d4a5a5%22 x=%2280%22 y=%22160%22 width=%22140%22 height=%2260%22 rx=%2210%22/></svg>');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Chocolate Cake</h3>
+                    <div class="product-price">Rs. 1200</div>
+                    <p class="product-desc">Rich chocolate cake with creamy frosting. Perfect for all celebrations!</p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cookies -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: linear-gradient(45deg, #a8edea, #fed6e3), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22><rect fill=%22%23a8edea%22 width=%22300%22 height=%22250%22/><circle fill=%22%23feca57%22 cx=%2250%22 cy=%2250%22 r=%2220%22/><circle fill=%22%23feca57%22 cx=%22100%22 cy=%2280%22 r=%2215%22/><circle fill=%22%23feca57%22 cx=%22250%22 cy=%2260%22 r=%2225%22/><circle fill=%22%23feca57%22 cx=%22200%22 cy=%22120%22 r=%2218%22/><circle fill=%22%23feca57%22 cx=%2280%22 cy=%22180%22 r=%2212%22/></svg>');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Chocolate Chip Cookies</h3>
+                    <div class="product-price">Rs. 350 / 12pcs</div>
+                    <p class="product-desc">Crispy outside, chewy inside with real chocolate chips.</p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Bread -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: linear-gradient(45deg, #ffecd2, #fcb69f), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22><rect fill=%22%23ffecd2%22 width=%22300%22 height=%22250%22 rx=%2210%22/><rect fill=%22%23d4a5a5%22 x=%2220%22 y=%2220%22 width=%22260%22 height=%22180%22 rx=%228%22/><circle fill=%22%23e6b744%22 cx=%2280%22 cy=%2280%22 r=%2210%22/><circle fill=%22%23e6b744%22 cx=%22220%22 cy=%2270%22 r=%228%22/></svg>');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Fresh Bread Loaf</h3>
+                    <div class="product-price">Rs. 180</div>
+                    <p class="product-desc">Freshly baked daily with premium ingredients.</p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cupcakes -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: linear-gradient(45deg, #a1c4fd, #c2e9fb), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22><rect fill=%22%23a1c4fd%22 width=%22300%22 height=%22250%22/><circle fill=%22%23fff%22 cx=%2260%22 cy=%2260%22 r=%2230%22/><circle fill=%22%23ff6b6b%22 cx=%22120%22 cy=%2280%22 r=%2220%22/><circle fill=%22%23feca57%22 cx=%22200%22 cy=%2270%22 r=%2225%22/><circle fill=%22%239c89b8%22 cx=%2280%22 cy=%22150%22 r=%2220%22/><circle fill=%22%23ff9ff3%22 cx=%22240%22 cy=%22160%22 r=%2218%22/></svg>');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Assorted Cupcakes</h3>
+                    <div class="product-price">Rs. 80 each</div>
+                    <p class="product-desc">Variety of flavors in mini cupcake form.</p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Rusk -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: linear-gradient(45deg, #ff9a8b, #fecfef), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22><rect fill=%22%23ff9a8b%22 width=%22300%22 height=%22250%22/><rect fill=%22%23e66767%22 x=%2230%22 y=%2230%22 width=%22240%22 height=%22160%22 rx=%225%22/><rect fill=%22%23d65f5f%22 x=%2280%22 y=%22200%22 width=%22140%22 height=%2230%22 rx=%223%22/></svg>');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Elaichi Rusk</h3>
+                    <div class="product-price">Rs. 420 / 500g</div>
+                    <p class="product-desc">Traditional Karachi-style rusk with elaichi flavor.</p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Pastries -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: linear-gradient(45deg, #a8e6cf, #dcedc1), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 250%22><rect fill=%22%23a8e6cf%22 width=%22300%22 height=%22250%22/><circle fill=%22%23ffd93d%22 cx=%2270%22 cy=%2270%22 r=%2225%22/><circle fill=%22%23ff6b6b%22 cx=%22180%22 cy=%2260%22 r=%2230%22/><rect fill=%22%23fff%22 x=%22100%22 y=%22150%22 width=%22100%22 height=%2260%22 rx=%2210%22/><circle fill=%22%23ff4757%22 cx=%22150%22 cy=%22180%22 r=%228%22/></svg>');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Cream Puffs</h3>
+                    <div class="product-price">Rs. 60 each</div>
+                    <p class="product-desc">Light pastry filled with fresh cream.</p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2 class="section-title">About Karachi Baker's</h2>
+            <p style="font-size: 1.2rem; color: #666;">
+                Karachi Baker's has been serving the city with fresh, delicious baked goods. 
+                Our passion for baking and commitment to quality makes us a favorite among families 
+                and dessert lovers. Every item is made with love and the finest ingredients.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section - UPDATED WITH YOUR DETAILS -->
+    <section id="contact" class="contact">
+        <h2
